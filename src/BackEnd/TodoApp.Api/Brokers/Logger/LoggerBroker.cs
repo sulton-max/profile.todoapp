@@ -76,6 +76,14 @@ public class LoggerBroker : ILoggerBroker
         _logger.LogError(messageTemplate, args);
     }
 
+    public void LogError(Exception exception)
+    {
+        if (!_logger.IsEnabled(LogLevel.Error))
+            return;
+
+        _logger.LogError(exception, exception?.Message);
+    }
+
     public void LogWarning<T>(string messageTemplate, T arg0)
     {
         if (!_logger.IsEnabled(LogLevel.Warning))

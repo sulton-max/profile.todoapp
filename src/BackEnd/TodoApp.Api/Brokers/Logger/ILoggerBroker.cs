@@ -1,4 +1,6 @@
-﻿namespace TodoApp.Api.Brokers.Logger;
+﻿using TodoApp.Api.Models.Exceptions.Entity;
+
+namespace TodoApp.Api.Brokers.Logger;
 
 /// <summary>
 /// Defines methods for logger broker
@@ -72,6 +74,12 @@ public interface ILoggerBroker
     /// <param name="messageTemplate">Log message template</param>
     /// <param name="args">Arguments</param>
     void LogError(string messageTemplate, params object[] args);
+
+    /// <summary>
+    /// Logs exception
+    /// </summary>
+    /// <param name="exception">Exception</param>
+    void LogError(Exception exception);
 
     /// <summary>
     /// Formats and writes an warning log message
