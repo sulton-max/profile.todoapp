@@ -7,3 +7,13 @@
         @apply relative;
     }
 }
+
+@layer components {
+    .cover-absolute {
+        @apply absolute top-0 left-0 right-0 min-h-screen;
+    }
+
+    .container-border {
+        @apply border border-primary dark:border-dark-secondary;
+    }
+}

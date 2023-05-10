@@ -1,6 +1,6 @@
 <template>
     <teleport to="body">
-        <app-modal>
+        <app-modal :show="true">
             <template v-slot:content>
                 <h5>Auth Modal Content</h5>
             </template>
