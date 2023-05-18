@@ -7,7 +7,7 @@ namespace TodoApp.Unit.Services.Foundations.Users;
 public partial class UserServiceTests
 {
     [Fact]
-    public async Task Add_WhenAddedSuccessfully_ShouldReturnUser()
+    public async Task AddUserAsync_WhenAddedSuccessfully_ShouldAddUser()
     {
         // Arrange
         var dateTime = GetRandomDateTime();

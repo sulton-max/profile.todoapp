@@ -37,10 +37,10 @@ public class User : IEntity
     /// <summary>
     /// Gets or sets user creation date
     /// </summary>
-    public DateTime CreatedDate { get; set; }
+    public DateTimeOffset CreatedDate { get; set; }
 
     /// <summary>
     /// Gets or sets user last update date
     /// </summary>
-    public DateTime UpdatedDate { get; set; }
+    public DateTimeOffset UpdatedDate { get; set; }
 }

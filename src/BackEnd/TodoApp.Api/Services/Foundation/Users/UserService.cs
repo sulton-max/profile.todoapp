@@ -25,12 +25,12 @@ public partial class UserService : IUserService
         throw new NotImplementedException();
     }
 
-    public ValueTask<User> UpdateUserAsync(User user)
+    public ValueTask<User> ModifyUserAsync(User user)
     {
         throw new NotImplementedException();
     }
 
-    public ValueTask<User> DeleteUserAsync(User user)
+    public ValueTask<User> RemoveUserAsync(User user)
     {
         throw new NotImplementedException();
     }

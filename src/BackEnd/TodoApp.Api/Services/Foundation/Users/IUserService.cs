@@ -10,7 +10,7 @@ public interface IUserService
 
     ValueTask<User> AddUserAsync(User user);
 
-    ValueTask<User> UpdateUserAsync(User user);
+    ValueTask<User> ModifyUserAsync(User user);
 
-    ValueTask<User> DeleteUserAsync(User user);
+    ValueTask<User> RemoveUserAsync(User user);
 }

@@ -1,6 +1,15 @@
-﻿namespace TodoApp.Api.Models.Users.Exceptions;
+﻿using System.Runtime.Serialization;
 
-public class UserServiceException
+namespace TodoApp.Api.Models.Users.Exceptions;
+
+[Serializable]
+public class UserServiceException : Exception
 {
-    
+    public UserServiceException(Exception innerException) : base("Service error occurred, contact support.", innerException)
+    {
+    }
+
+    protected UserServiceException(SerializationInfo info, StreamingContext context) : base(info, context)
+    {
+    }
 }
