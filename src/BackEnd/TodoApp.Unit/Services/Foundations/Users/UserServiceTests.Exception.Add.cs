@@ -7,7 +7,7 @@ namespace TodoApp.Unit.Services.Foundations.Users;
 public partial class UserServiceTests
 {
     [Fact]
-    public async Task Add_WhenSqlExceptionOccurs_ShouldThrowDependencyExceptionAndLogItAsync()
+    public async Task AddUserAsync_WhenSqlExceptionOccurs_ShouldThrowDependencyExceptionAndLogIt()
     {
         // Arrange
         var inputUser = CreateRandomUser();
@@ -24,9 +24,7 @@ public partial class UserServiceTests
         await Assert.ThrowsAsync<UserDependencyException>(() => act.AsTask());
 
         _dateTimeBrokerMock.Verify(x => x.GetCurrentDateTime(), Times.Once);
-
         _dataStorageBrokerMock.Verify(x => x.InsertUserAsync(inputUser), Times.Once);
-
         _loggerBrokerMock.Verify(x => x.LogError(It.Is(SameExceptionAs(expectedException))), Times.Once);
 
         _dateTimeBrokerMock.VerifyNoOtherCalls();
@@ -35,7 +33,7 @@ public partial class UserServiceTests
     }
 
     [Fact]
-    public async Task Add_WhenDbExceptionOccurs_ShouldThrowDependencyExceptionAndLogIt()
+    public async Task AddUserAsync_WhenDbExceptionOccurs_ShouldThrowDependencyExceptionAndLogIt()
     {
         // Arrange
         var inputUser = CreateRandomUser();
@@ -52,9 +50,7 @@ public partial class UserServiceTests
         await Assert.ThrowsAsync<UserDependencyException>(() => act.AsTask());
 
         _dateTimeBrokerMock.Verify(x => x.GetCurrentDateTime(), Times.Once);
-
         _dataStorageBrokerMock.Verify(x => x.InsertUserAsync(inputUser), Times.Once);
-
         _loggerBrokerMock.Verify(x => x.LogError(It.Is(SameExceptionAs(expectedException))), Times.Once);
 
         _dateTimeBrokerMock.VerifyNoOtherCalls();
@@ -63,7 +59,7 @@ public partial class UserServiceTests
     }
 
     [Fact]
-    public async Task Add_WhenExceptionOccurs_ShouldThrowFailedServiceExceptionAndLogIt()
+    public async Task AddUserAsync_WhenExceptionOccurs_ShouldThrowFailedServiceExceptionAndLogIt()
     {
         // Arrange
         var inputUser = CreateRandomUser();
@@ -81,9 +77,7 @@ public partial class UserServiceTests
         await Assert.ThrowsAsync<UserServiceException>(() => act.AsTask());
 
         _dateTimeBrokerMock.Verify(x => x.GetCurrentDateTime(), Times.Once);
-
         _dataStorageBrokerMock.Verify(x => x.InsertUserAsync(inputUser), Times.Once);
-
         _loggerBrokerMock.Verify(x => x.LogError(It.Is(SameExceptionAs(expectedException))), Times.Once);
 
         _dateTimeBrokerMock.VerifyNoOtherCalls();
