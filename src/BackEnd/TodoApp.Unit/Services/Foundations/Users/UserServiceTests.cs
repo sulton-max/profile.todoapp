@@ -60,8 +60,6 @@ public partial class UserServiceTests
 
     public static TheoryData<(Action<User, dynamic> changeUser, string parameterName, object parameterValue)> InvalidUserCases()
     {
-        Action<User> test = x => x.Id = default;
-
         return new TheoryData<(Action<User, dynamic> changeUser, string parameterName, object parameterValue)>
         {
             // ((x, value) => x.Id = value, nameof(User.Id), default(Guid)),
@@ -83,6 +81,20 @@ public partial class UserServiceTests
             ((x, value) => x.LastName = value, nameof(User.LastName), new MnemonicString(8).GetValue()),
             ((x, value) => x.CreatedDate = value, nameof(User.CreatedDate), default),
             ((x, value) => x.UpdatedDate = value, nameof(User.UpdatedDate), default),
+        };
+    }
+
+    public static TheoryData<Action<User>> UserUpdateCases()
+    {
+        var faker = new Faker();
+
+        return new TheoryData<Action<User>>
+        {
+            (x) => x.EmailAddress = faker.Person.Email,
+            (x) => x.Password = new MnemonicString(8).GetValue(),
+            (x) => x.Username = faker.Person.UserName,
+            (x) => x.FirstName = faker.Person.FirstName,
+            (x) => x.LastName = faker.Person.LastName,
         };
     }
 }
