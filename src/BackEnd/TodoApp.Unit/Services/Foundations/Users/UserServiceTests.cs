@@ -41,7 +41,7 @@ public partial class UserServiceTests
 
     private static int GetRandomNumber() => new IntRange(1, 10).GetValue();
 
-    private static int GetNegativeRandomNumber() => new IntRange(-10, -1).GetValue() * -1;
+    private static int GetNegativeRandomNumber() => GetRandomNumber() * -1;
 
     private static string GetRandomMessage() => new MnemonicString().GetValue();
 
