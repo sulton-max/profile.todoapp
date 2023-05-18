@@ -2,12 +2,12 @@
 using TodoApp.Api.Models.Enums;
 using TaskStatus = TodoApp.Api.Models.Enums.TaskStatus;
 
-namespace TodoApp.Api.Models.Entities;
+namespace TodoApp.Api.Models.TodoTask;
 
 /// <summary>
 /// Represents a task with status
 /// </summary>
-public class Task : IEntity
+public class TodoTask : IEntity
 {
     public Guid Id { get; set; }
 

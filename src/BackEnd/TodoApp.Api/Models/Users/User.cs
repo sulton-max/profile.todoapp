@@ -1,6 +1,6 @@
 ﻿using TodoApp.Api.Models.Common;
 
-namespace TodoApp.Api.Models.Entities;
+namespace TodoApp.Api.Models.Users;
 
 /// <summary>
 /// Represents a user of the system
