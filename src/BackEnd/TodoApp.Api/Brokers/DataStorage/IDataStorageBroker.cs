@@ -4,9 +4,9 @@ using TodoApp.Api.Models.Common;
 namespace TodoApp.Api.Brokers.DataStorage;
 
 /// <summary>
-/// Defines common data storage broker functionality
+/// Defines data storage broker methods
 /// </summary>
-public interface IDataStorageBroker
+public partial interface IDataStorageBroker
 {
     /// <summary>
     /// Selects entity set as queryable collection without decryption
@@ -57,7 +57,7 @@ public interface IDataStorageBroker
     /// <param name="cancellationToken">Cancellation Token</param>
     /// <typeparam name="TEntity">Entity type</typeparam>
     /// <returns>Deleted entity if succeeded, otherwise null</returns>
-    ValueTask<TEntity?> DeleteAsync<TEntity>(TEntity entity, CancellationToken cancellationToken = default) where TEntity : class?, IEntity;
+    ValueTask<TEntity?> DeleteAsync<TEntity>(TEntity entity, CancellationToken cancellationToken = default) where TEntity : class, IEntity;
 
     /// <summary>
     /// Saves changes to data source

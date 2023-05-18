@@ -1,6 +1,6 @@
 ﻿using TodoApp.Api.Models.Users;
 
-namespace TodoApp.Api.Brokers.DataStorage.Users;
+namespace TodoApp.Api.Brokers.DataStorage;
 
 /// <summary>
 /// Defines data storage methods for users
