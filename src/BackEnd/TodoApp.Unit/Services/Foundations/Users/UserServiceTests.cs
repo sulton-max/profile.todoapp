@@ -19,14 +19,15 @@ public partial class UserServiceTests
     private readonly Mock<ILoggerBroker> _loggerBrokerMock;
     private readonly Mock<IDataStorageBroker> _dataStorageBrokerMock;
 
-    private static readonly Faker<User> UserFaker = new Faker<User>().RuleFor(x => x.Id, Guid.NewGuid())
+    private static readonly Faker<User> UserFaker = new Faker<User>()
+        // .RuleFor(x => x.Id, Guid.NewGuid())
         .RuleFor(x => x.EmailAddress, x => x.Person.Email)
         .RuleFor(x => x.Password, x => new MnemonicString(1, 8, 20).GetValue())
         .RuleFor(x => x.Username, x => x.Person.UserName)
         .RuleFor(x => x.FirstName, x => x.Person.FirstName)
-        .RuleFor(x => x.LastName, x => x.Person.LastName)
-        .RuleFor(x => x.CreatedDate, x => DateTimeOffset.UtcNow)
-        .RuleFor(x => x.UpdatedDate, x => DateTimeOffset.UtcNow);
+        .RuleFor(x => x.LastName, x => x.Person.LastName);
+    // .RuleFor(x => x.CreatedDate, x => DateTimeOffset.UtcNow)
+    // .RuleFor(x => x.UpdatedDate, x => DateTimeOffset.UtcNow);
 
 
     public UserServiceTests()
